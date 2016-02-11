@@ -1,0 +1,35 @@
+<html ng-app="docsSimpleDirective">
+   
+   <head>
+      <title>Angular JS Custom Directives</title>
+   </head>
+   
+   <body>
+      <div ng-controller="Controller"> 
+  <div bold-me ng-style="large">
+  </div>
+</div>
+<script src="js/angular.js"></script>
+      <script>
+         angular.module('docsSimpleDirective', [])
+         .controller('Controller', ['$scope', function($scope) {
+            $scope.large={
+               "color" : "white",
+              "background-color" : "coral",
+              "font-size" : "40px",
+              "padding" : "30px"
+           };
+              $scope.details = {
+                name: 'Nipuna',
+                address: 'Techaspect'
+              };
+         }])
+      .directive('boldMe', function() {
+        return {
+          template: 'Name: {{details.name }} Address: {{details.address | uppercase}}'
+        };
+      });
+      
+      </script>
+   </body>
+</html>
